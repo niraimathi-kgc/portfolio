@@ -10,7 +10,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "Portfolio Website",
-    description: "A modern, responsive portfolio website built with Next.js and Tailwind CSS. Features sections for skills, experience, and projects with a clean, professional design.",
+    description: "A modern, responsive portfolio website built with Next.js and Tailwind CSS. Features sections for skills, experience, and projects with a clean, professional design. This site is hosted on GitHub Pages and developed using cursor IDE with claude 3.5 sonnet AI assistance.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
     githubUrl: "https://github.com/niraimathi-kgc/portfolio"
   },
