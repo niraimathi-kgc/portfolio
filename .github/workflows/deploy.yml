@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,10 +28,35 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
-          folder: out
-          repository-name: niraimathi-kgc/niraimathi-kgc.github.io
-          token: ${{ secrets.GHA_PAT_PORTFOLIO }}
-          branch: master
+          name: frontend-final-dist
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+            repository: niraimathi-kgc/niraimathi-kgc.github.io
+            token: ${{ secrets.GHA_PAT_PORTFOLIO }}
+            path: portfolio-repo
+      
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: frontend-final-dist
+
+      - name: Deploy to GitHub Pages
+        run: |
+          git config --global user.email "niraimathi.kgc@gmail.com"
+          git config --global user.name "niraimathi-kgc"
+          ls
+          cp -r out/* portfolio-repo/
+          cd portfolio-repo
+          git add .
+          git commit -m "Deploying to GitHub Pages $(date)"
+          git push
