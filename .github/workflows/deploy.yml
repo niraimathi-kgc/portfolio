@@ -1,4 +1,7 @@
 name: Deploy to GitHub Pages
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
 
 on:
   push:
@@ -52,7 +55,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.email "niraimathi.kgc@gmail.com"
+          git config --global user.email "niraimathikgc@gmail.com"
           git config --global user.name "niraimathi-kgc"
           ls
           cp -r out/* portfolio-repo/
