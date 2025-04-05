@@ -1,0 +1,13 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# they will be requested for review when someone opens a pull request.
+*       @niraimathi-kgc
+
+# Specific ownership for workflow files
+.github/workflows/    @niraimathi-kgc
+
+# Specific ownership for Next.js configuration
+next.config.js    @niraimathi-kgc
+
+# Specific ownership for core application code
+/src/    @niraimathi-kgc 
