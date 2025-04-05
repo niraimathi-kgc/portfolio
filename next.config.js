@@ -6,7 +6,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: '',
-  assetPrefix: './',
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://codeandconsole.com' : '',
   trailingSlash: true,
   distDir: 'out',
 }
