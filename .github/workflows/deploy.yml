@@ -52,14 +52,14 @@ jobs:
         uses: actions/download-artifact@v4.2.1
         with:
           name: frontend-final-dist
+          path: portfolio-repo
 
       - name: Deploy to GitHub Pages
         run: |
           git config --global user.email "niraimathikgc@gmail.com"
           git config --global user.name "niraimathi-kgc"
           ls
-          cp -r out/* portfolio-repo/
-          cd portfolio-repo
           git add .
           git commit -m "Deploying to GitHub Pages $(date)"
           git push
+        working-directory: portfolio-repo
