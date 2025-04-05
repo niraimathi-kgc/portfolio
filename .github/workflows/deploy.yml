@@ -35,4 +35,4 @@ jobs:
           branch: gh-pages
           clean: true
           repository-name: niraimathi-kgc/niraimathi-kgc.github.io
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GHA_PAT_PORTFOLIO }}
