@@ -32,7 +32,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: out
-          branch: gh-pages
-          clean: true
           repository-name: niraimathi-kgc/niraimathi-kgc.github.io
           token: ${{ secrets.GHA_PAT_PORTFOLIO }}
+          branch: master
